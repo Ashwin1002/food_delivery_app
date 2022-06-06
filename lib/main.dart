@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/appbar/appbar.dart';
 import 'navbar/navbar.dart';
 import 'navbar/NamedIcon.dart';
-import 'bottomNavigationBar/home.dart';
+import 'bottomNavigationBar/homepage.dart';
 import 'bottomNavigationBar/settings.dart';
 import 'bottomNavigationBar/account.dart';
 import 'bottomNavigationBar/favourite.dart';
@@ -27,22 +28,40 @@ class MyApp extends StatelessWidget {
 }
 
 class deliveryApp extends StatefulWidget {
+
+  String? title;
+
   @override
   State<deliveryApp> createState() => _deliverappState();
 }
 
 class _deliverappState extends State<deliveryApp> {
   int _currentIndex = 0;
+  String _title = 'Food Deliver App';
+
   final List<Widget> _list = [
     homePage(),
-    settings(),
     favourite(),
     account(),
+    settings(),
   ];
+
+  @override
 
   void onTappedBar(index) {
     setState(() {
       _currentIndex = index;
+
+      switch(index) {
+        case 0: {_title = 'Food deliver app'; }
+          break;
+        case 1: { _title = 'Favourite'; }
+        break;
+        case 2: { _title = 'title'; }
+        break;
+        case 3: { _title = 'Settings'; }
+        break;
+      }
     });
   }
 
@@ -50,31 +69,7 @@ class _deliverappState extends State<deliveryApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: navbar(),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: ElevatedButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.location_on),
-          label: const Text("Food Delivery App",
-              style: TextStyle(color: Colors.black)),
-          style: ElevatedButton.styleFrom(
-            primary: Colors.transparent,
-            onPrimary: Colors.red,
-            elevation: 0.0,
-          ),
-        ),
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        actions: [
-          NamedIcon(
-            text: '',
-            iconData: Icons.shopping_bag_outlined,
-            notificationCount: 3,
-            onTap: () {},
-          )
-        ],
-      ),
+      appBar: appbar(_title),
       body: _list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -110,6 +105,8 @@ class _deliverappState extends State<deliveryApp> {
         ],
         onTap: onTappedBar,
       ),
+
     );
   }
+
 }

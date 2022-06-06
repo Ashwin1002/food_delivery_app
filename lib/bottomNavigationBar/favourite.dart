@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/appbar/appbar.dart';
 
 class favourite extends StatelessWidget {
-  const favourite({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold
+    return Scaffold
       (
-      appBar: AppBar(
-        title: Text("Favourite Page"),
-      ),
+      appBar: appbar('Favourites'),
       body: new Text("This is the Favourite Page"),
     );
   }
