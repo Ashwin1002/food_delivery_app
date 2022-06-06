@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'navbar.dart';
-import 'NamedIcon.dart';
+import 'navbar/navbar.dart';
+import 'navbar/NamedIcon.dart';
+import 'bottomNavigationBar/home.dart';
+import 'bottomNavigationBar/settings.dart';
+import 'bottomNavigationBar/account.dart';
+import 'bottomNavigationBar/favourite.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,18 +21,30 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: deliveryApp(),
     );
   }
 }
 
-class Home extends StatefulWidget {
+class deliveryApp extends StatefulWidget {
   @override
-  State<Home> createState() => _HomeState();
+  State<deliveryApp> createState() => _deliverappState();
 }
 
-class _HomeState extends State<Home> {
+class _deliverappState extends State<deliveryApp> {
   int _currentIndex = 0;
+  final List<Widget> _list = [
+    homePage(),
+    settings(),
+    favourite(),
+    account(),
+  ];
+
+  void onTappedBar(index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,20 +73,9 @@ class _HomeState extends State<Home> {
             notificationCount: 3,
             onTap: () {},
           )
-          /*RawMaterialButton(
-            onPressed: () {},
-            fillColor: Colors.red,
-            elevation: 2.0,
-            padding: const EdgeInsets.all(15.0),
-            shape: const CircleBorder(),
-            child: const Icon(
-              Icons.shopping_bag_outlined,
-              color: Colors.white,
-            ),
-          ),*/
         ],
       ),
-      body: Container(),
+      body: _list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
@@ -102,11 +108,7 @@ class _HomeState extends State<Home> {
             label: 'Settings',
           ),
         ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: onTappedBar,
       ),
     );
   }
