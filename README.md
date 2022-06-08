@@ -1,6 +1,6 @@
 # food_delivery_app
 
-A new Flutter project.
+It is a UI made in flutter which is a food delivering application.
 
 ## Getting Started
 
