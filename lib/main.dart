@@ -53,7 +53,7 @@ class _deliverappState extends State<deliveryApp> {
       _currentIndex = index;
 
       switch(index) {
-        case 0: {_title = 'Food deliver app'; }
+        case 0: {_title = 'Chicago IIL'; }
           break;
         case 1: { _title = 'Favourite'; }
         break;

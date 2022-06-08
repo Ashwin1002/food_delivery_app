@@ -7,8 +7,7 @@ class favourite extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold
       (
-      appBar: appbar('Favourites'),
-      body: new Text("This is the Favourite Page"),
+      body: Center(child: new Text("This is the Favourite Page")),
     );
   }
 }

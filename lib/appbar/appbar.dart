@@ -17,7 +17,7 @@ class appbar extends StatelessWidget implements PreferredSizeWidget {
       key: _scaffoldKey,
       drawer: navbar(),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         centerTitle: true,
         leading: IconButton(
             onPressed: () => _scaffoldKey.currentState?.openDrawer(),
