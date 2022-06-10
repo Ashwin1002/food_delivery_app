@@ -2,15 +2,8 @@
 
 It is a UI made in flutter which is a food delivering application.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home Page
+<br>
+<img src = 'https://user-images.githubusercontent.com/47735067/173019264-d79f2819-ea45-4d70-9a4c-2522849b6637.png' width='350', height '600'>
